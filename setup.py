@@ -1,3 +1,3 @@
 """Noop."""
 
-import jsonconfig
+import importconfig
