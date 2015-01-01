@@ -69,7 +69,7 @@ class ImportConfig(object):
             ``dict``
         """
         if not self.object:
-            self.object = self._get_file_path(self.file_path)
+            self.object = self._get_file_path(self.loader, self.file_path)
             self.config = self._expand(self.object)
             return self.config
         return self.config
