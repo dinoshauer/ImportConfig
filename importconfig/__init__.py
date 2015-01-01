@@ -1,4 +1,4 @@
-"""ImportConfig
+"""JSON and YAML parsing with imports.
 
 The special thing about ImportConfig is that it supports a notion
 of "imports". You can import other json files in your json file
@@ -8,7 +8,7 @@ be expanded into that level.
 A config file can be loaded lazily and the main config file will only be
 loaded once it is called.
 
-Example:
+**Example**::
 
     {
         "app_name": "foo",
@@ -18,7 +18,7 @@ Example:
         }
     }
 
-    will translate into:
+**will translate into**::
 
     {
         "app_name": "foo",
