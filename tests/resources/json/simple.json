@@ -1,0 +1,4 @@
+{
+    "foo": "bar",
+    "@file": "./tests/resources/json/simple_import.json"
+}
