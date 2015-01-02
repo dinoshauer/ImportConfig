@@ -1,4 +1,4 @@
-"""Base ImportConfig class.
+"""Base ``ImportConfig`` class.
 
 ImportConfig can be subclassed for use with parsers that has a function called
 ``load`` to load file-like objects and parse them into python objects.
@@ -9,10 +9,7 @@ from __future__ import print_function, unicode_literals
 import collections
 import os
 
-
-class InvalidFilePathError(Exception):
-
-    """Exception to be thrown when an invalid filepath is passed."""
+from .exceptions import InvalidFilePathError
 
 
 class ImportConfig(object):

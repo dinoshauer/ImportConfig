@@ -2,19 +2,18 @@ Welcome to ImportConfig's documentation!
 ========================================
 
 .. automodule:: importconfig
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
 Contents:
 =========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    importconfig/jsonconfig
    importconfig/yamlconfig
    importconfig/importconfig
+   importconfig/exceptions
+   todo
 
 Indices and tables
 ==================

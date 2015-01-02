@@ -27,14 +27,20 @@ loaded once it is called.
             "level": "debug"
         }
     }
+
+.. todo::
+
+    - Support relative paths for ``@file's`` value
+    - Have the root document take precedence if the same keys exists in the imported file
 """
 from __future__ import unicode_literals
 
 from importconfig import ImportConfig
 from jsonconfig import JsonConfig
 from yamlconfig import YamlConfig
+import exceptions
 
-__all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', )
+__all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', 'exceptions', )
 __name__ = 'ImportConfig'
 __url__ = 'https://github.com/Dinoshauer/ImportConfig'
 __author__ = 'Kasper M. Jacobsen'

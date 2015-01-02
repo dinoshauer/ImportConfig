@@ -1,4 +1,4 @@
-"""YamlConfig - ImportConfig subclass for loading YAML files."""
+"""YamlConfig - ``ImportConfig`` subclass for loading YAML files."""
 
 from __future__ import print_function, unicode_literals
 

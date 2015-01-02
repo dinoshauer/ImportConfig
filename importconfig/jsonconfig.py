@@ -1,4 +1,4 @@
-"""JsonConfig - ImportConfig subclass for loading JSON files."""
+"""JsonConfig - ``ImportConfig`` subclass for loading JSON files."""
 
 from __future__ import print_function, unicode_literals
 
@@ -23,7 +23,7 @@ class JsonConfig(ImportConfig):
         file_path (``str``): The path to the JSON file that will be loaded
         lazy (``bool``, optional): Do not load the JSON file immediately
             in the constructor. **default:** ``False``
-    """
+"""
 
     def __init__(self, file_path, lazy=False):
         """JsonConfig constructor."""
