@@ -1,5 +1,9 @@
 """JSON and YAML parsing with imports.
 
+**Installation**::
+
+    pip install importconfig
+
 The special thing about ImportConfig is that it supports a notion
 of "imports". You can import other json files in your json file
 by specifying a "@file" value at any level in the config and it will

@@ -6,7 +6,7 @@ import importconfig
 
 setup(
     name=importconfig.__name__,
-    description=importconfig.__doc__,
+    description='JSON and YAML parsing with imports.',
     license='MIT',
     url=importconfig.__url__,
     author=importconfig.__author__,
