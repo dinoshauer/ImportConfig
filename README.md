@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/Dinoshauer/ImportConfig.svg)](https://travis-ci.org/Dinoshauer/ImportConfig)
-
 [![Coverage Status](https://coveralls.io/repos/Dinoshauer/ImportConfig/badge.png)](https://coveralls.io/r/Dinoshauer/ImportConfig)
-
 [![Documentation Status](https://readthedocs.org/projects/importconfig/badge/?version=latest)](https://readthedocs.org/projects/importconfig/?badge=latest)
 
 
