@@ -1,3 +1,8 @@
+.. image:: https://travis-ci.org/Dinoshauer/ImportConfig.svg
+    :target: https://travis-ci.org/Dinoshauer/ImportConfig
+.. image:: https://coveralls.io/repos/Dinoshauer/ImportConfig/badge.png
+  :target: https://coveralls.io/r/Dinoshauer/ImportConfig
+
 Welcome to ImportConfig's documentation!
 ========================================
 
