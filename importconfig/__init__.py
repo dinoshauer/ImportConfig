@@ -32,6 +32,13 @@ loaded once it is called.
         }
     }
 
+**Contents of "logging.json"**::
+
+    {
+        "log_file": "/var/log/foo.log",
+        "level": "info"
+    }
+
 .. todo::
 
     - Support relative paths for ``@file's`` value
