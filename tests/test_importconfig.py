@@ -57,6 +57,16 @@ class TestMasterPrecedence(TestCase):
         assert config.config['hello'] == 'testing'
 
 
+class TestRelativeImportConfig(TestCase):
+
+    """Test relative imports."""
+
+    def test_relative_import(self):
+        """Assert that ImportConfig can import files relative to the master."""
+        self.config = ImportConfig(json, './tests/resources/json/relative.json')
+        assert self.config.config.get('hello') == 'world'
+
+
 class TestImportConfigLazy(TestCase):
 
     """Test the laziness of the ImportConfig baseclass."""

@@ -19,7 +19,8 @@ class ImportConfig(object):
     def __init__(self, loader, file_path, lazy=False):
         """ImportConfig constructor."""
         self.loader = loader
-        self.file_path = file_path
+        self.file_path = os.path.abspath(file_path)
+        self._file_root, _ = os.path.split(self.file_path)
         self.object = {}
         self.config = {}
         if not lazy:
@@ -27,17 +28,25 @@ class ImportConfig(object):
             self.config = self._expand(self.object)
 
     @staticmethod
-    def _get_file_path(loader, file_path):
+    def _get_file_path(loader, file_path, file_root=None):
         """Check the file path and return the JSON loaded as a dict.
 
         Arguments:
             file_path (``str``): Path to the file to load
+            file_root (``str``): If provided the method will use ``file_root``
+                as a fallback before raising an ``InvalidFilePathError``
 
         Returns:
             ``dict``
+
+        Raises:
+            ``InvalidFilePathError``
         """
         if os.path.isfile(file_path):
             with open(file_path, 'r') as file_obj:
+                return loader.load(file_obj)
+        elif file_root:
+            with open(os.path.join(file_root, file_path), 'r') as file_obj:
                 return loader.load(file_obj)
         raise InvalidFilePathError('{} is not a file!'.format(file_path))
 
@@ -50,15 +59,17 @@ class ImportConfig(object):
         result = {}
         for key, value in input_dict.items():
             if key == '@file':
-                result.update(self._get_file_path(self.loader, value))
+                contents = self._get_file_path(self.loader, value,
+                                               file_root=self._file_root)
+                result.update(contents)
             elif isinstance(value, collections.MutableMapping):
                 result[key] = self._expand(value)
             else:
                 result[key] = value
         res = {}
-        for k, v in list(result.items()) + list(input_dict.items()):
-            if k != '@file':
-                res[k] = v
+        for key, value in list(result.items()) + list(input_dict.items()):
+            if key != '@file':
+                res[key] = value
         return res
 
     def load(self):
