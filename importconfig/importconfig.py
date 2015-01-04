@@ -59,7 +59,7 @@ class ImportConfig(object):
             del d['@file']
         except KeyError:
             pass
-        return dict(result.items() + d.items())
+        return dict(list(result.items()) + list(d.items()))
 
     def load(self):
         """Loads up the expanded configuration.
