@@ -8,5 +8,6 @@ install:
   - "pip install -r requirements-dev.txt"
   - "pip install coveralls"
 script: "nosetests --with-coverage --cover-package importconfig tests"
+after_script: "pre-commit run --all-files"
 after_success:
   - coveralls
