@@ -52,12 +52,14 @@ class ImportConfig(object):
             if k == '@file':
                 result.update(self._get_file_path(self.loader, v))
             elif isinstance(v, collections.MutableMapping):
-                # v and the result of _expand should be merged
-                # with results' values taking precedence :*
                 result[k] = self._expand(v)
             else:
                 result[k] = v
-        return result
+        try:
+            del d['@file']
+        except KeyError:
+            pass
+        return dict(result.items() + d.items())
 
     def load(self):
         """Loads up the expanded configuration.
