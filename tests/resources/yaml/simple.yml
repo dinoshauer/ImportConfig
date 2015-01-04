@@ -1,3 +1,3 @@
 ---
 foo: bar
-"@file": ./tests/resources/json/simple_import.json
+"@file": ./tests/resources/yaml/simple_import.yml
