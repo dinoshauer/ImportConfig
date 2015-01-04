@@ -12,6 +12,9 @@ be expanded into that level.
 A config file can be loaded lazily and the main config file will only be
 loaded once it is called.
 
+**Note:** keys/values defined in the top level document will take precedence
+over those loaded in sub-documents.
+
 **Example**::
 
     {
