@@ -52,7 +52,6 @@ from .importconfig import ImportConfig
 from .jsonconfig import JsonConfig
 from .yamlconfig import YamlConfig
 
-
 __all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', 'exceptions', )
 __name__ = 'ImportConfig'
 __url__ = 'https://github.com/Dinoshauer/ImportConfig'
