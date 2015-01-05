@@ -45,14 +45,16 @@ over those loaded in sub-documents.
 .. todo::
 
     - Support relative paths for ``@file's`` value
-    - Have the root document take precedence if the same keys exists in the imported file
+    - Root document take precedence if the same key exists in the imported file
 """
-from __future__ import absolute_import, unicode_literals
+from __future__ import absolute_import
+from __future__ import unicode_literals
 
+from . import exceptions
 from .importconfig import ImportConfig
 from .jsonconfig import JsonConfig
 from .yamlconfig import YamlConfig
-from . import exceptions
+
 
 __all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', 'exceptions', )
 __name__ = 'ImportConfig'

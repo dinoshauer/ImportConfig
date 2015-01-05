@@ -3,8 +3,8 @@
 ImportConfig can be subclassed for use with parsers that has a function called
 ``load`` to load file-like objects and parse them into python objects.
 """
-
-from __future__ import print_function, unicode_literals
+from __future__ import print_function
+from __future__ import unicode_literals
 
 import collections
 import os
@@ -37,32 +37,32 @@ class ImportConfig(object):
             ``dict``
         """
         if os.path.isfile(file_path):
-            with open(file_path, 'r') as f:
-                return loader.load(f)
+            with open(file_path, 'r') as file_obj:
+                return loader.load(file_obj)
         raise InvalidFilePathError('{} is not a file!'.format(file_path))
 
-    def _expand(self, d):
+    def _expand(self, input_dict):
         """Iterate on the config object and find @file keys.
 
         Returns:
             ``dict``
         """
         result = {}
-        for k, v in d.items():
-            if k == '@file':
-                result.update(self._get_file_path(self.loader, v))
-            elif isinstance(v, collections.MutableMapping):
-                result[k] = self._expand(v)
+        for key, value in input_dict.items():
+            if key == '@file':
+                result.update(self._get_file_path(self.loader, value))
+            elif isinstance(value, collections.MutableMapping):
+                result[key] = self._expand(value)
             else:
-                result[k] = v
+                result[key] = value
         try:
-            del d['@file']
+            del input_dict['@file']
         except KeyError:
             pass
-        return dict(list(result.items()) + list(d.items()))
+        return dict(list(result.items()) + list(input_dict.items()))
 
     def load(self):
-        """Loads up the expanded configuration.
+        """Load up the expanded configuration.
 
         Returns:
             ``dict``

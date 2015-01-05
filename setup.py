@@ -1,8 +1,8 @@
 """Setup file for handling the importconfig package."""
-
 from setuptools import setup
 
 import importconfig
+
 
 setup(
     name=importconfig.__name__,

@@ -1,0 +1,12 @@
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.py]
+indent=4
+
+[*.json]
+indent=4
+
+[*.{yaml,yml}]
+indent=2
