@@ -1,5 +1,4 @@
 """ImportConfig base class spec."""
-
 from __future__ import unicode_literals
 
 import json
@@ -28,7 +27,8 @@ class TestSimpleImportConfig(TestCase):
     def test__get_file_path(self):
         """Assert that ImportConfig#_get_file_path will load a file."""
         config = ImportConfig
-        result = config._get_file_path(json, './tests/resources/json/simple.json')
+        path = './tests/resources/json/simple.json'
+        result = config._get_file_path(json, path)
         assert isinstance(result, dict)
         with self.assertRaises(InvalidFilePathError):
             config._get_file_path(json, 'not_a_file')
@@ -51,9 +51,9 @@ class TestRelativeImportConfig(TestCase):
     """Test relative imports."""
 
     def test_relative_import(self):
-        """Assert that ImportConfig can import files relative to the master."""
-        self.config = ImportConfig(json, './tests/resources/json/relative.json')
-        assert self.config.config.get('hello') == 'world'
+        """Assert that ImportConfig can import relative to the master."""
+        config = ImportConfig(json, './tests/resources/json/relative.json')
+        assert config.config.get('hello') == 'world'
 
 
 class TestImportConfigLazy(TestCase):
@@ -62,7 +62,8 @@ class TestImportConfigLazy(TestCase):
 
     def test_importconfig_lazy(self):
         """Assert that the ImportConfig class will load a file lazily."""
-        config = ImportConfig(json, './tests/resources/json/simple.json', lazy=True)
+        path = './tests/resources/json/simple.json'
+        config = ImportConfig(json, path, lazy=True)
         assert config.object == {}
         assert config.config == {}
         result = config.load()

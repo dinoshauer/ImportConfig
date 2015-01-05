@@ -3,8 +3,8 @@
 ImportConfig can be subclassed for use with parsers that has a function called
 ``load`` to load file-like objects and parse them into python objects.
 """
-
-from __future__ import print_function, unicode_literals
+from __future__ import print_function
+from __future__ import unicode_literals
 
 import collections
 import os
@@ -50,28 +50,28 @@ class ImportConfig(object):
                 return loader.load(f)
         raise InvalidFilePathError('{} is not a file!'.format(file_path))
 
-    def _expand(self, d):
+    def _expand(self, input_dict):
         """Iterate on the config object and find @file keys.
 
         Returns:
             ``dict``
         """
         result = {}
-        for k, v in d.items():
-            if k == '@file':
-                contents = self._get_file_path(self.loader, v,
+        for key, value in input_dict.items():
+            if key == '@file':
+                contents = self._get_file_path(self.loader, value,
                                                file_root=self._file_root)
                 result.update(contents)
-            elif isinstance(v, collections.MutableMapping):
-                # v and the result of _expand should be merged
+            elif isinstance(value, collections.MutableMapping):
+                # value and the result of _expand should be merged
                 # with results' values taking precedence :*
-                result[k] = self._expand(v)
+                result[key] = self._expand(value)
             else:
-                result[k] = v
+                result[key] = value
         return result
 
     def load(self):
-        """Loads up the expanded configuration.
+        """Load up the expanded configuration.
 
         Returns:
             ``dict``

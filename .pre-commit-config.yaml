@@ -1,0 +1,35 @@
+- repo: git://github.com/pre-commit/pre-commit-hooks
+  sha: v0.3.0
+  hooks:
+  - id: check-yaml
+  - id: check-json
+  - id: end-of-file-fixer
+  - id: flake8
+  - id: trailing-whitespace
+  # - id: requirements-txt-fixer
+
+- repo: git://github.com/pre-commit/mirrors-pylint
+  sha: v1.3.1
+  hooks:
+  - id: pylint
+    args:
+    - --disable import-error
+    - --disable too-few-public-methods
+    - --disable redefined-builtin
+    - --disable protected-access
+    - --disable no-self-use
+    - --disable too-many-public-methods
+    - --disable invalid-name
+    - --disable cyclic-import
+
+- repo: git://github.com/asottile/reorder_python_imports
+  sha: 4749f285414c8a5db2a5d89ab45e19d571465fa4
+  hooks:
+  - id: reorder-python-imports
+    args:
+      - --diff-only
+
+- repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
+  sha: v0.3.2
+  hooks:
+  - id: pep257
