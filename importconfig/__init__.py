@@ -12,6 +12,9 @@ be expanded into that level.
 A config file can be loaded lazily and the main config file will only be
 loaded once it is called.
 
+**Note:** keys/values defined in the top level document will take precedence
+over those loaded in sub-documents.
+
 **Example**::
 
     {
@@ -52,10 +55,9 @@ from .importconfig import ImportConfig
 from .jsonconfig import JsonConfig
 from .yamlconfig import YamlConfig
 
-
 __all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', 'exceptions', )
 __name__ = 'ImportConfig'
 __url__ = 'https://github.com/Dinoshauer/ImportConfig'
 __author__ = 'Kasper M. Jacobsen'
 __email__ = 'k@mackwerk.dk'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
