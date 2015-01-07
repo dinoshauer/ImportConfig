@@ -56,6 +56,17 @@ class TestRelativeImportConfig(TestCase):
         assert config.config.get('hello') == 'world'
 
 
+class TestMasterPrecedence(TestCase):
+
+    """Test the ImportConfig baseclass."""
+
+    def test_master_precedence(self):
+        """Assert that the master document will take presedence over loaded."""
+        path = './tests/resources/json/master_precedence.json'
+        config = ImportConfig(json, path)
+        assert config.config['hello'] == 'testing'
+
+
 class TestImportConfigLazy(TestCase):
 
     """Test the laziness of the ImportConfig baseclass."""

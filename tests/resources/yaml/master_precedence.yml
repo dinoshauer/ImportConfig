@@ -1,0 +1,3 @@
+---
+hello: testing
+"@file": ./tests/resources/json/simple_import.json

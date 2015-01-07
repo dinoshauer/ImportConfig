@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from unittest import TestCase
 
 from importconfig import YamlConfig
+from importconfig import yamlconfig
 
 
 class TestYamlConfig(TestCase):
@@ -22,3 +23,14 @@ class TestYamlConfig(TestCase):
         """
         config = YamlConfig('./tests/resources/yaml/simple.yml')
         assert 'hello' in config.load().keys()
+
+    def test_yamlconfig_method(self):
+        """Test that the yamlconfig (method version) works.
+
+        Asserting that jsonconfig will return a ``dict`` if ``lazy=False``
+        or an instance of ``YamlConfig`` if ``lazy=True``.
+        """
+        eager = yamlconfig('./tests/resources/yaml/simple.yml', lazy=False)
+        assert type(eager) is dict
+        lazy = yamlconfig('./tests/resources/yaml/simple.yml', lazy=True)
+        assert isinstance(lazy, YamlConfig)
