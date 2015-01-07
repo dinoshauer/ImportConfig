@@ -55,11 +55,11 @@ class ImportConfig(object):
                 result[key] = self._expand(value)
             else:
                 result[key] = value
-        try:
-            del input_dict['@file']
-        except KeyError:
-            pass
-        return dict(list(result.items()) + list(input_dict.items()))
+        res = {}
+        for k, v in list(result.items()) + list(input_dict.items()):
+            if k != '@file':
+                res[k] = v
+        return res
 
     def load(self):
         """Load up the expanded configuration.
