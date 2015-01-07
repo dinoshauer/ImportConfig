@@ -23,7 +23,7 @@
     - --disable cyclic-import
 
 - repo: git://github.com/asottile/reorder_python_imports
-  sha: 4749f285414c8a5db2a5d89ab45e19d571465fa4
+  sha: ab361ca1e4dfaeea0c4eab464c799e02cb306ab3
   hooks:
   - id: reorder-python-imports
     args:
