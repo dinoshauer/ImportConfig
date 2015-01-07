@@ -53,9 +53,12 @@ from __future__ import unicode_literals
 from . import exceptions
 from .importconfig import ImportConfig
 from .jsonconfig import JsonConfig
+from .jsonconfig import jsonconfig
 from .yamlconfig import YamlConfig
+from .yamlconfig import yamlconfig
 
-__all__ = ('ImportConfig', 'JsonConfig', 'YamlConfig', 'exceptions', )
+__all__ = ('ImportConfig', 'JsonConfig', 'jsonconfig', 'YamlConfig',
+           'yamlconfig', 'exceptions', )
 __name__ = 'ImportConfig'
 __url__ = 'https://github.com/Dinoshauer/ImportConfig'
 __author__ = 'Kasper M. Jacobsen'
