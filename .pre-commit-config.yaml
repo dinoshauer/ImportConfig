@@ -21,6 +21,7 @@
     - --disable too-many-public-methods
     - --disable invalid-name
     - --disable cyclic-import
+    - --disable attribute-defined-outside-init
 
 - repo: git://github.com/asottile/reorder_python_imports
   sha: ab361ca1e4dfaeea0c4eab464c799e02cb306ab3
