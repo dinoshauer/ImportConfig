@@ -18,6 +18,7 @@ Contents:
    importconfig/yamlconfig
    importconfig/importconfig
    importconfig/exceptions
+   gotchas
    todo
 
 Indices and tables
