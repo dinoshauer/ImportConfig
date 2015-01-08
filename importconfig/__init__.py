@@ -1,4 +1,5 @@
-"""JSON and YAML parsing with imports.
+# -*- coding: utf-8 -*-
+u"""JSON and YAML parsing with imports.
 
 **Installation**::
 
@@ -45,7 +46,7 @@ over those loaded in sub-documents.
 .. todo::
 
     - Support relative paths for ``@file's`` value
-    - Root document take precedence if the same key exists in the imported file
+    ✓ Root document take precedence if the same key exists in the imported file
 """
 from __future__ import absolute_import
 from __future__ import unicode_literals
