@@ -10,7 +10,7 @@ JSON and YAML parsing with imports.
 
 # TODO
 
-- [ ] Support relative paths for @file's value
+- [x] Support relative paths for @file's value
 - [x] Have the root document take precedence if the same keys exists in the imported file
 
 # Installation

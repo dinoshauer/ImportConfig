@@ -45,7 +45,7 @@ over those loaded in sub-documents.
 
 .. todo::
 
-    - Support relative paths for ``@file's`` value
+    ✓ Support relative paths for ``@file's`` value
     ✓ Root document take precedence if the same key exists in the imported file
 """
 from __future__ import absolute_import
@@ -64,4 +64,4 @@ __name__ = 'ImportConfig'
 __url__ = 'https://github.com/Dinoshauer/ImportConfig'
 __author__ = 'Kasper M. Jacobsen'
 __email__ = 'k@mackwerk.dk'
-__version__ = '0.0.3'
+__version__ = '0.0.4'
