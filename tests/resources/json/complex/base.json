@@ -1,0 +1,6 @@
+{
+    "file": {
+        "filename": "base.json",
+        "@file": "level1/level1.json"
+    }
+}

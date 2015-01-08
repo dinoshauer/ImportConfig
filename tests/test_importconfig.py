@@ -63,7 +63,8 @@ class TestRelativeImportConfig(TestCase):
 
     def test_relative_import(self):
         """Assert that ImportConfig can import files relative to the master."""
-        self.config = ImportConfig(json, './tests/resources/json/relative.json')
+        path = './tests/resources/json/relative.json'
+        self.config = ImportConfig(json, path)
         assert self.config.config.get('hello') == 'world'
 
 
@@ -81,3 +82,28 @@ class TestImportConfigLazy(TestCase):
         assert config.object != {}
         assert config.config != {}
         assert bool(result)
+
+
+class TestImportConfigComplex(TestCase):
+
+    """Test that we can load a file and children in a complex manner."""
+
+    def test_importconfig_complex(self):
+        """Assert that the ImportConfig class will load all files."""
+        mock = {
+            u'file': {
+                u'file': {
+                    u'file': {
+                        u'file': {
+                            u'filename': u'level3.json'
+                        },
+                        u'filename': u'level2.json'
+                    },
+                    u'filename': u'level1.json'
+                },
+                u'filename': u'base.json'
+            }
+        }
+        path = './tests/resources/json/complex/base.json'
+        config = ImportConfig(json, path)
+        assert mock == config.config

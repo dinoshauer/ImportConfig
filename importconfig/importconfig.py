@@ -61,13 +61,13 @@ class ImportConfig(object):
             if key == '@file':
                 contents = self._get_file_path(self.loader, value,
                                                file_root=self._file_root)
-                result.update(contents)
+                result.update(self._expand(contents))
             elif isinstance(value, collections.MutableMapping):
                 result[key] = self._expand(value)
             else:
                 result[key] = value
         res = {}
-        for key, value in list(result.items()) + list(input_dict.items()):
+        for key, value in list(input_dict.items()) + list(result.items()):
             if key != '@file':
                 res[key] = value
         return res
