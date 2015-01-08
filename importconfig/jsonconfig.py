@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 try:
     import ujson as json
-except ImportError:
+except ImportError:  # pragma: no cover
     try:
         import simplejson as json
     except ImportError:

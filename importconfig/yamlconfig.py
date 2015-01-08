@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 try:
     import yaml
-except ImportError as exc_info:
+except ImportError as exc_info:  # pragma: no cover
     print('******************************************************')
     print('Ignore this message if you are installing ImportConfig')
     print('ImportError: {}'.format(exc_info))
