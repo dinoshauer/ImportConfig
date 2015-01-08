@@ -3,10 +3,12 @@ from setuptools import setup
 
 import importconfig
 
+description, long_description = importconfig.__doc__.split('\n\n', 1)
 
 setup(
     name=importconfig.__name__,
-    description='JSON and YAML parsing with imports.',
+    description=description,
+    long_description=long_description,
     license='MIT',
     url=importconfig.__url__,
     author=importconfig.__author__,
